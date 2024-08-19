@@ -1,0 +1,45 @@
+public class inge2.dataflow.targets.ZeroAnalysis7 extends java.lang.Object
+{
+/*ZeroAnalysis7.java*/
+
+/*2*/
+    public void <init>()
+    {
+        inge2.dataflow.targets.ZeroAnalysis7 this;
+
+        this := @this: inge2.dataflow.targets.ZeroAnalysis7;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*3*/
+
+        return;
+/*3*/
+    }
+
+/*4*/
+    public static int func()
+    {
+        int d;
+        boolean i, j;
+
+        i = 0;
+/*5*/
+
+        j = 1;
+/*6*/
+
+        d = j / i;
+/*7*/
+/*Possible division by zero here*/
+
+        if d <= 0 goto label1;
+/*9*/
+
+        d = 1;
+/*10*/
+
+     label1:
+        return d;
+/*13*/
+    }
+}
