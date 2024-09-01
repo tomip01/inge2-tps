@@ -61,6 +61,8 @@ public class ZeroValueVisitor extends AbstractValueVisitor<ZeroAbstractValue> {
     @Override
     public void visitDivExpression(ZeroAbstractValue leftOperand, ZeroAbstractValue rightOperand) {
         resolvedValue = leftOperand.divideBy(rightOperand);
+
+        // si el valor luego de la división es BOTTOM o si el operando de la derecha es ZERO, pudo ocurrir una división por cero
         if(resolvedValue.equals(ZeroAbstractValue.BOTTOM) || rightOperand.equals(ZeroAbstractValue.MAYBE_ZERO)){
             possibleDivisionByZero = true;
         }

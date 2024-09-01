@@ -61,8 +61,13 @@ public class ZeroAbstractState {
      * @return the union of this state with another state.
      */
     public ZeroAbstractState union(ZeroAbstractState another) {
+
+        // creamos copia del actual con los mismos valores
         ZeroAbstractState res = new ZeroAbstractState();
         res.putAll(this);
+
+        // para el otro conjunto, si una variable está en ambos, los mergeamos
+        // si no lo agregamos
         for (String anotherName : another.map.keySet()) {
             if(res.hasValue(anotherName)){
                 res.setValue(anotherName, res.getValue(anotherName).merge(another.getValue(anotherName)));

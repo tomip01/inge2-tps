@@ -123,10 +123,13 @@ public enum ZeroAbstractValue {
      * @return the result of the merge.
      */
     public ZeroAbstractValue merge(ZeroAbstractValue another) {
+        // tomamos supremo al ser un análisis conservador
         if(this.name.equals(ZeroAbstractValue.MAYBE_ZERO.toString()) || another.name.equals(ZeroAbstractValue.MAYBE_ZERO.toString())){
+            // si alguno es MAYBE ZERO, el supremo siempre es MAYBE ZERO
             return ZeroAbstractValue.MAYBE_ZERO;
         }
         if(this.name.equals(ZeroAbstractValue.BOTTOM.toString()) && !another.name.equals(ZeroAbstractValue.BOTTOM.toString())){
+            // si alguno es BOTTOM, el supremo va a ser el valor del otro operando
             return another;
         }
         return this;
